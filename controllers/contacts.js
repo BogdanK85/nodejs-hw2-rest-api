@@ -9,9 +9,9 @@ const getAll = async (req, res) => {
 const getUserById = async (req, res) => {
   const { contactId } = req.params;
   const result = await contacts.getContactById(contactId);
-  //   if (!result) {
-  //     throw HttpError(404, "Not Found");
-  //   }
+  if (!result) {
+    throw HttpError(404, "Not Found");
+  }
   res.json(result);
 };
 

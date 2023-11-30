@@ -20,7 +20,7 @@ const getContactById = async (contactId) => {
     return contacts.find((contact) => contact.id === contactId) || null;
   } catch (error) {
     console.error("Error get contact by ID:", error.message);
-    return null;
+    throw error;
   }
 };
 
@@ -44,7 +44,7 @@ const removeContact = async (contactId) => {
     return deletedContact;
   } catch (error) {
     console.error("Error remove contact", error.message);
-    return null;
+    throw error;
   }
 };
 
@@ -62,7 +62,7 @@ const addContact = async (body) => {
     return newContact;
   } catch (error) {
     console.error("Error add contact", error.message);
-    return null;
+    throw new Error("Failed to add contact");
   }
 };
 
