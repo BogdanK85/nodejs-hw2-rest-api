@@ -27,20 +27,20 @@ contactSchema.post("save", handleMongooseError);
 const addSchema = Joi.object({
   name: Joi.string()
     .required()
-    .message({ "any.required": "missing required name field" }),
+    .messages({ "any.required": "missing required name field" }),
   email: Joi.string()
     .required()
-    .message({ "any.required": "missing required email field" }),
+    .messages({ "any.required": "missing required email field" }),
   phone: Joi.string()
     .required()
-    .message({ "any.required": "missing required phone field" }),
+    .messages({ "any.required": "missing required phone field" }),
   favorite: Joi.boolean().label("favorite"),
 });
 
 const updateFavoriteSchema = Joi.object({
   favorite: Joi.boolean()
     .required()
-    .message({ "any.required": "missing required favorite field" }),
+    .messages({ "any.required": "missing required favorite field" }),
 });
 
 const schemas = {
