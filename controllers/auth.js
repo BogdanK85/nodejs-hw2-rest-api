@@ -4,7 +4,8 @@ const { User } = require("../models/user");
 const { HttpError, ctrlWrapper } = require("../helpers");
 require("dotenv").config();
 
-const { SECRET_KEY } = process.env;
+// const { SECRET_KEY } = process.env;
+const SECRET_KEY = "7j.do43]>eus]H|TnEUEa~w9aWVt0k";
 
 const register = async (req, res) => {
   const { email, password } = req.body;
@@ -55,7 +56,18 @@ const login = async (req, res) => {
     },
   });
 };
+
+const getCurrent = async (req, res) => {
+  const { email, name } = req.user;
+
+  res.json({
+    email,
+    name,
+  });
+};
+
 module.exports = {
   register: ctrlWrapper(register),
   login: ctrlWrapper(login),
+  getCurrent: ctrlWrapper(getCurrent),
 };
