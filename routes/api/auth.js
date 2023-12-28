@@ -21,4 +21,12 @@ router.patch(
   ctrl.updateAvatar
 );
 
+router.get("/verify/:verificationCode", ctrl.verifyEmail);
+
+router.post(
+  "/verify",
+  validateBody(schemas.emailSchema),
+  ctrl.resendVerifyEmail
+);
+
 module.exports = router;
